@@ -11,7 +11,7 @@ editor: visual
 
 ```{r}
 library(tidyverse)
-?midwest
+
 ```
 
 ### Question 1
@@ -72,9 +72,21 @@ ggplot(midwest, aes(y = popdensity)) +
     title = "Distrubution of Population Density of Midwestern Counties",)
 ```
 
-Comment: The distribution of the population density seems to be largely within the lower range. There are some outliers including the most extreme outlier, Mecklenburg County, NC. It is hard for me to determine if it makes sense to me that this county is an outlier because I am unfamiliar with the counties of the United States
+Comment: The distribution of the population density seems to be largely within the lower range. There are some outliers including the most extreme outlier, Mecklenburg County, NC. It is hard for me to determine if it makes sense to me that this county is an outlier because I am unfamiliar with the counties and their populations within the United States.
 
 ### Question 3
+
+```{r}
+ggplot(midwest, aes(x=percollege, y=percbelowpoverty, colour = state, shape = state)) +
+geom_point() +
+  labs(x= "Population that is college educated (%)",
+    y= "Population below the poverty line (%)",
+    colour = "The state the county is in",
+    shape = "The state the county is in",
+    title= "Percent College education vs Percent Below the Poverty Line by County")
+```
+
+Comment: MENOMINEE county outlier for poverty and WASHTENAW county outlier for percent college educated
 
 ### Question 4
 
