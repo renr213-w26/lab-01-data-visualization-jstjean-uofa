@@ -123,8 +123,18 @@ midwest <- midwest |>
 ```
 
 ```{r}
+ggplot(midwest, aes(x= state, fill = metro)) +
+  geom_bar(position = "fill") +
+  labs(
+    x= "State",
+    y= "Proportion considered metropolitan areas",
+    title= "Counties Considered Metropilitan Areas by State",
+    fill = "Is it a metropolitan area?"
+  )
 
 ```
+
+Comment: Comparing between the states the proportions range from the lowest, approximately 26% of counites in Illinois and Wisconsin being counted as metropolitan areas to the highest, approximately 45% in Ohio. Indiana with approximately 38% and Michigan with approximately 27% fall inbetween. This shows that the amount of counties in Ohio that are considered metropolitan areas is almost double the amount in Illinois, Wisconsin, and Michigan. While it is not quite double we can see that there is a significant amount more in Ohio.
 
 ### Question 7
 
