@@ -104,7 +104,27 @@ Comment: I prefer this plot because it is easier to distinguish the trends of ea
 
 ### Question 5
 
+```{r}
+ggplot(midwest, aes(x= state, y = area)) +
+  geom_boxplot() +
+  labs(
+    y = "Area of the County",
+    x = "State",
+    title = "Area of Counties in Midwestern States",)
+```
+
+Comment: The size of the counties does not seem to vary a large amount between them however, Ohio and Indiana do seem to have generally smaller counties than Illinois, Michigan, and Wisconsin. There are also larger variations in size in Illinois, Michigan and Wisconsin. The state with the largest county is Michigan, it is Marquette County.
+
 ### Question 6
+
+```{r}
+midwest <- midwest |>
+  mutate(metro = if_else(inmetro == 1, "Yes", "No"))
+```
+
+```{r}
+
+```
 
 ### Question 7
 
