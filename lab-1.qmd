@@ -83,12 +83,24 @@ geom_point() +
     y= "Population below the poverty line (%)",
     colour = "The state the county is in",
     shape = "The state the county is in",
-    title= "Percent College education vs Percent Below the Poverty Line by County")
+    title= "Percent College education vs Percent Below the Poverty Line \nby County")
 ```
 
 Comment: The general relationship between the percent of the population below the poverty line and the percent of the population that is college educated is that when the percent of college education goes up the percent of the population below the poverty rate goes down. An outlier for this general trend can be seen in the county of Jackson in Illinois, where 36.64% of the population is college educated but 28.37% of the population is below the poverty line. This does not follow the general trend of the rest of the counties with other counties with percent college educated between 30-40 % with poverty rates averaging
 
 ### Question 4
+
+```{r}
+ggplot(midwest, aes(x=percollege, y=percbelowpoverty, colour = state, shape = state)) +
+geom_point() +
+  geom_smooth(se= FALSE, linewidth = 0.5) +
+  facet_wrap(~state) +
+  labs(x= "Population that is college educated (%)",
+    y= "Population below the poverty line (%)",
+    title= "Percent College education vs Percent Below the Poverty Line \nby County")
+```
+
+Comment: I prefer this plot because it is easier to distinguish the trends of each state and the plot from question 3 had a lot of points all clumped together. this plot still has this somewhat but it lessens it and makes it clearer.
 
 ### Question 5
 
