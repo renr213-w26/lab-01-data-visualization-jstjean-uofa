@@ -97,7 +97,7 @@ geom_point() +
 
 Comment: The general relationship between the percent of the population below the poverty line and the percent of the population that is college educated is that when the percent of college education goes up the percent of the population below the poverty rate goes down.
 An outlier for this general trend can be seen in the county of Jackson in Illinois, where 36.64% of the population is college educated but 28.37% of the population is below the poverty line.
-This does not follow the general trend of the rest of the counties with other counties with percent college educated between 30-40 % with poverty rates averaging
+This does not follow the general trend of the rest of the counties with other counties with percent college educated between 30-40%.
 
 ### Question 4
 
