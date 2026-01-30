@@ -158,7 +158,7 @@ While it is not quite double we can see that there is a significantly larger amo
 
 ```{r}
 ggplot(midwest, aes(x=percollege, y=percbelowpoverty, colour= percwhite,))+
-  geom_point(alpha=0.5) +
+  geom_point(size = 2, alpha=0.5) +
  facet_wrap(~state) +
   labs(
     x= "% college educated",
@@ -171,8 +171,6 @@ ggplot(midwest, aes(x=percollege, y=percbelowpoverty, colour= percwhite,))+
 
 Comment: Menominee county is an outlier in Wisconsin, it has a low percentage of people that are college educated and a high percent of people below the poverty line.
 This county has an extremely high percentage of Native American residents, at 89.18% with 0% of the population being Black or Asian and a very small percentage of White residents or residents labeled as Other.
-
-Note: I did not include the size as 2 in my code because it made the points look way larger than the points in the reference graph.
 
 ## Part 2
 
