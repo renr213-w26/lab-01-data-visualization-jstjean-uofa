@@ -1,8 +1,10 @@
 ---
 title: "Lab 1 - Data visualization"
 format: pdf
+editor: 
+  markdown: 
+    wrap: sentence
 author: Jessica St. Jean
-editor: visual
 ---
 
 # Questions
@@ -60,7 +62,10 @@ ggplot(midwest, aes(x=popdensity))+
   )
 ```
 
-Comment: I think that the most appropirate binwidth is 1,000 because it most clearly illustrates the data, the binwidth of 100 makes it difficult to read because the bins are too small and ambiguous in what number they represent between the labels on the x-axis. The 10,000 and 100,000 binwidths are inappropriate because they group too many population densities together in the 0-25,000 population density range, the 100,000 bandwidth especially. The 10,000 binwidth plot also seems to suggest that there are population densities below 0 which is not possible. Therefore 1,000 is the most well suited because it have enough seperation between population densities is not extremely small and does not make there appear to be data below 0.
+Comment: I think that the most appropriate binwidth is 1,000 because it most clearly illustrates the data, the binwidth of 100 makes it difficult to read because the bins are too small and ambiguous in what number they represent between the labels on the x-axis.
+The 10,000 and 100,000 binwidths are inappropriate because they group too many population densities together in the 0-25,000 population density range, the 100,000 bandwidth especially.
+The 10,000 binwidth plot also seems to suggest that there are population densities below 0 which is not possible.
+Therefore 1,000 is the most well suited because it have enough seperation between population densities is not extremely small and does not make there appear to be data below 0.
 
 ### Question 2
 
@@ -72,7 +77,11 @@ ggplot(midwest, aes(y = popdensity)) +
     title = "Distrubution of Population Density of Midwestern Counties",)
 ```
 
-Comment: The distribution of the population density seems to be largely within the lower range. There are some outliers including the most extreme outlier, Cook County is Illinois. It is hard for me to determine if it makes sense to me that this county is an outlier because I am unfamiliar with the counties and their populations within the United States. However, I would assume that this county encompasses a large city or dense urban area while the majority of counties in the midwest would be in rural areas and have lower population densities. After looking it up it seems like this county includes the city of Chicago which makes sense and confirms my assumptions.
+Comment: The distribution of the population density seems to be almost entirely within the lower range (very close to 0).
+There are some outliers including the most extreme outlier, Cook County is Illinois.
+It is hard for me to determine if it makes sense to me that this county is an outlier because I am unfamiliar with the counties and their populations within the United States.
+However, I would assume that this county encompasses a large city or dense urban area while the majority of counties in the midwest would be in rural areas and have lower population densities.
+After looking it up it seems like this county includes the city of Chicago which makes sense and confirms my assumptions.
 
 ### Question 3
 
@@ -86,7 +95,9 @@ geom_point() +
     title= "Percent College education vs Percent Below the Poverty Line \nby County")
 ```
 
-Comment: The general relationship between the percent of the population below the poverty line and the percent of the population that is college educated is that when the percent of college education goes up the percent of the population below the poverty rate goes down. An outlier for this general trend can be seen in the county of Jackson in Illinois, where 36.64% of the population is college educated but 28.37% of the population is below the poverty line. This does not follow the general trend of the rest of the counties with other counties with percent college educated between 30-40 % with poverty rates averaging
+Comment: The general relationship between the percent of the population below the poverty line and the percent of the population that is college educated is that when the percent of college education goes up the percent of the population below the poverty rate goes down.
+An outlier for this general trend can be seen in the county of Jackson in Illinois, where 36.64% of the population is college educated but 28.37% of the population is below the poverty line.
+This does not follow the general trend of the rest of the counties with other counties with percent college educated between 30-40 % with poverty rates averaging
 
 ### Question 4
 
@@ -100,7 +111,8 @@ geom_point() +
     title= "Percent College education vs Percent Below the Poverty Line \nby County")
 ```
 
-Comment: I prefer this plot because it is easier to distinguish the trends of each state and the plot from question 3 had a lot of points all clumped together. this plot still has this somewhat but it lessens it and makes it clearer.
+Comment: I prefer this plot because it is easier to distinguish the trends of each state and the plot from question 3 had a lot of points all clumped together.
+this plot still has this somewhat but it lessens it and makes it clearer.
 
 ### Question 5
 
@@ -113,7 +125,9 @@ ggplot(midwest, aes(x= state, y = area)) +
     title = "Area of Counties in Midwestern States",)
 ```
 
-Comment: The size of the counties does not seem to vary a large amount between them however, Ohio and Indiana do seem to have generally smaller counties than Illinois, Michigan, and Wisconsin. There are also larger variations in size in Illinois, Michigan and Wisconsin. The state with the largest county is Michigan, it is Marquette County.
+Comment: The size of the counties does not seem to vary a large amount between them however, Ohio and Indiana do seem to have generally smaller counties than Illinois, Michigan, and Wisconsin.
+There are also larger variations in size in Illinois, Michigan and Wisconsin.
+The state with the largest county is Michigan, it is Marquette County.
 
 ### Question 6
 
@@ -134,9 +148,28 @@ ggplot(midwest, aes(x= state, fill = metro)) +
 
 ```
 
-Comment: Comparing between the states the proportions range from the lowest, approximately 26% of counites in Illinois and Wisconsin being counted as metropolitan areas to the highest, approximately 45% in Ohio. Indiana with approximately 38% and Michigan with approximately 27% fall inbetween. This shows that the amount of counties in Ohio that are considered metropolitan areas is almost double the amount in Illinois, Wisconsin, and Michigan. While it is not quite double we can see that there is a significant amount more in Ohio.
+Comment: Comparing between the states the proportions range from the lowest, approximately 26% of counites in Illinois and Wisconsin being counted as metropolitan areas to the highest, approximately 45% in Ohio.
+Indiana with approximately 38% and Michigan with approximately 27% fall inbetween.
+This shows that the amount of counties in Ohio that are considered metropolitan areas is almost double the amount in Illinois, Wisconsin, and Michigan.
+While it is not quite double we can see that there is a significant amount more in Ohio.
 
 ### Question 7
+
+```{r}
+ggplot(midwest, aes(x=percollege, y=percbelowpoverty, colour= percwhite,))+
+  geom_point(alpha=0.5) +
+ facet_wrap(~state) +
+  labs(
+    x= "% college educated",
+    y = "% below poverty line",
+    colour = "% white",
+    title ="Poverty Level vs College Education\nBy State"
+  )+
+  theme_minimal()
+```
+
+Comment: Menominee county is an outlier in Wisconsin, it has a low percentage of people that are college educated and a high percent of people below the poverty line.
+This county has an extremely high percentage of Native American residents, at 89.18% with 0% of the population being Black or Asian and a very small pecentage of White residents or residents labeled as Other.
 
 ## Part 2
 
