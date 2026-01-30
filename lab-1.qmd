@@ -64,8 +64,8 @@ ggplot(midwest, aes(x=popdensity))+
 
 Comment: I think that the most appropriate binwidth is 1,000 because it most clearly illustrates the data, the binwidth of 100 makes it difficult to read because the bins are too small and ambiguous in what number they represent between the labels on the x-axis.
 The 10,000 and 100,000 binwidths are inappropriate because they group too many population densities together in the 0-25,000 population density range, the 100,000 bandwidth especially.
-The 10,000 binwidth plot also seems to suggest that there are population densities below 0 which is not possible.
-Therefore 1,000 is the most well suited because it have enough seperation between population densities is not extremely small and does not make there appear to be data below 0.
+The 10,000 and 100,000 binwidth plots also seem to suggest that there are population densities below 0 which is not possible.
+Therefore 1,000 is the most well suited because it have enough separation between population densities is not extremely small and does not make there appear to be data below 0.
 
 ### Question 2
 
@@ -77,10 +77,10 @@ ggplot(midwest, aes(y = popdensity)) +
     title = "Distrubution of Population Density of Midwestern Counties",)
 ```
 
-Comment: The distribution of the population density seems to be almost entirely within the lower range (very close to 0).
-There are some outliers including the most extreme outlier, Cook County is Illinois.
-It is hard for me to determine if it makes sense to me that this county is an outlier because I am unfamiliar with the counties and their populations within the United States.
-However, I would assume that this county encompasses a large city or dense urban area while the majority of counties in the midwest would be in rural areas and have lower population densities.
+Comment: The distribution of the population density seems to be almost entirely within the lower range (very close to 0) which is also reflected in the previous plots.
+There are some outliers including the most extreme outlier, Cook County in Illinois.
+It is hard for me to determine if it makes sense to me that this specific county is an outlier because I am unfamiliar with the counties and their populations within the United States.
+However, I would assume that this county encompasses a large city or a very dense urban area while the majority of counties in the midwest may be in rural areas and have lower population densities.
 After looking it up it seems like this county includes the city of Chicago which makes sense and confirms my assumptions.
 
 ### Question 3
@@ -111,8 +111,9 @@ geom_point() +
     title= "Percent College education vs Percent Below the Poverty Line \nby County")
 ```
 
-Comment: I prefer this plot because it is easier to distinguish the trends of each state and the plot from question 3 had a lot of points all clumped together.
+Comment: I prefer this plot because it is easier to distinguish the trends of each state as the plot from question 3 had a lot of points all clumped together.
 this plot still has this somewhat but it lessens it and makes it clearer.
+The line also helps to illustrate the trend which I prefer.
 
 ### Question 5
 
@@ -126,7 +127,7 @@ ggplot(midwest, aes(x= state, y = area)) +
 ```
 
 Comment: The size of the counties does not seem to vary a large amount between them however, Ohio and Indiana do seem to have generally smaller counties than Illinois, Michigan, and Wisconsin.
-There are also larger variations in size in Illinois, Michigan and Wisconsin.
+There are also larger variations in size within Illinois, Michigan and Wisconsin.
 The state with the largest county is Michigan, it is Marquette County.
 
 ### Question 6
@@ -148,10 +149,10 @@ ggplot(midwest, aes(x= state, fill = metro)) +
 
 ```
 
-Comment: Comparing between the states the proportions range from the lowest, approximately 26% of counites in Illinois and Wisconsin being counted as metropolitan areas to the highest, approximately 45% in Ohio.
-Indiana with approximately 38% and Michigan with approximately 27% fall inbetween.
+Comment: Comparing between the states the proportions range from the lowest, approximately 26% of counties in Illinois and Wisconsin being counted as metropolitan areas to the highest, approximately 45% in Ohio.
+Indiana with approximately 38% and Michigan with approximately 27% fall in between.
 This shows that the amount of counties in Ohio that are considered metropolitan areas is almost double the amount in Illinois, Wisconsin, and Michigan.
-While it is not quite double we can see that there is a significant amount more in Ohio.
+While it is not quite double we can see that there is a significantly larger amount in Ohio.
 
 ### Question 7
 
@@ -169,12 +170,48 @@ ggplot(midwest, aes(x=percollege, y=percbelowpoverty, colour= percwhite,))+
 ```
 
 Comment: Menominee county is an outlier in Wisconsin, it has a low percentage of people that are college educated and a high percent of people below the poverty line.
-This county has an extremely high percentage of Native American residents, at 89.18% with 0% of the population being Black or Asian and a very small pecentage of White residents or residents labeled as Other.
+This county has an extremely high percentage of Native American residents, at 89.18% with 0% of the population being Black or Asian and a very small percentage of White residents or residents labeled as Other.
+
+Note: I did not include the size as 2 in my code because it made the points look way larger than the points in the reference graph.
 
 ## Part 2
 
 **Enough about the Midwest!**
 
+```{r}
+nc_county <- read_csv("data/nc-county.csv")
+```
+
 ### Question 8
 
+Comment: I believe it will be a negative relationship where as land area increases the population density decreases.
+
+```{r}
+ggplot(nc_county, aes(x=land_area_mi2, y=density)) + 
+geom_point() +
+  labs(
+    x="Land Area (miles squared)",
+    y = "Population density (person/mile squared)",
+    title = "Land Area vs Population Density of Counties in North Carolina"
+  )+
+  theme_minimal()
+
+```
+
+Comment: There doesn't seem to be a strong relationship which is not what I expected.
+
 ### Question 9
+
+```{r}
+ggplot(nc_county, aes(x=land_area_m2, y=density)) + 
+geom_point() +
+  labs(
+    x="Land Area (metres squared)",
+    y = "Population density (person/mile squared)",
+    title = "Land Area vs Population Density of Counties in North Carolina"
+  )+
+  theme_minimal()
+```
+
+Comment: The relationship (or lack of one) is the same as the plot in question 8, this is due to the points not moving, the population density was calculated in and uses square miles, so those numbers well remain the same.
+The numbers that change are the x-axis which is now scaled to be in metres squared, so the points do not move but the new x-axis changes the meaning/context.
